@@ -1,7 +1,7 @@
 /*global QUnit*/
 
 sap.ui.define([
-	"ssa/transshipment_report/controller/Home.controller"
+	"lab2dev/splitappmanipulation/controller/Home.controller"
 ], function (Controller) {
 	"use strict";
 
