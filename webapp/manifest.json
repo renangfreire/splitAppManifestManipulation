@@ -1,0 +1,157 @@
+{
+  "_version": "1.37.0",
+  "sap.app": {
+    "id": "ssa.transshipmentreport",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.13.2",
+      "toolsId": "a5717ce7-e0de-4236-ae1b-c329eb4a30ed"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.96.30",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "ssa.transshipmentreport.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "ssa.transshipmentreport.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteHome",
+          "pattern": ":?query:",
+          "target": [
+            "TargetHome",
+            "FreightOrdersMaster",
+            "NoData"
+          ]
+        },
+        {
+          "name": "FreightOrdersDetails",
+          "pattern": "{orderId}",
+          "target": [
+            "TargetHome",
+            "FreightOrdersMaster",
+            "FreightOrdersDetails"
+          ]
+        },
+        {
+          "name": "Summarize",
+          "pattern": "summarize",
+          "target": [
+            "Summarize"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetHome": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Home",
+          "viewName": "Home"
+        },
+        "FreightOrdersMaster": {
+          "viewType": "XML",
+          "parent": "TargetHome",
+          "controlAggregation": "masterPages",
+          "viewPath": "ssa.transshipmentreport.view.aggregations",
+          "controlId": "freightOrdersSplitApp",
+          "viewId": "FreightOrdersMaster",
+          "viewName": "FreightOrdersMaster"
+        },
+        "NoData": {
+          "viewType": "XML",
+          "parent": "TargetHome",
+          "controlAggregation": "detailPages",
+          "viewPath": "ssa.transshipmentreport.view.aggregations",
+          "controlId": "freightOrdersSplitApp",
+          "viewId": "NoData",
+          "viewName": "NoData"
+        },
+        "FreightOrdersDetails": {
+          "viewType": "XML",
+          "parent": "TargetHome",
+          "viewPath": "ssa.transshipmentreport.view.aggregations",
+          "controlAggregation": "detailPages",
+          "controlId": "freightOrdersSplitApp",
+          "viewId": "FreightOrdersDetails",
+          "viewName": "FreightOrdersDetails"
+        },
+        "Summarize": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Summarize",
+          "viewName": "Summarize"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "ssa.transshipmentreport.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}

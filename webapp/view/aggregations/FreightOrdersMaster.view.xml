@@ -1,0 +1,8 @@
+<mvc:View xmlns:vbm="sap.ui.vbm" controllerName="ssa.transshipmentreport.controller.Home"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="freightOrderMaster" showHeader="false">  
+        <Title text="Master" />
+    </Page>
+</mvc:View>
