@@ -1,7 +1,7 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "ssa/transshipmentreport/model/formatter",
-    "ssa/transshipmentreport/model/models",
+    "lab2dev/splitappmanipulation/model/formatter",
+    "lab2dev/splitappmanipulation/model/models",
     "sap/ui/core/Fragment",
     "sap/m/MessageBox",
     "sap/m/MessageToast",
@@ -10,7 +10,7 @@ sap.ui.define([
         "use strict";
 
         const sResponsivePaddingClasses = "sapUiResponsivePadding--header sapUiResponsivePadding--content sapUiResponsivePadding--footer";
-        const sProjectPath = "ssa.transshipmentreport";
+        const sProjectPath = "lab2dev/splitappmanipulation";
         return Controller.extend(`${sProjectPath}.controller.BaseController`, {
             formatter: formatter,
             models: models,

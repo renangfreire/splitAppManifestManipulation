@@ -1,7 +1,7 @@
 {
   "_version": "1.37.0",
   "sap.app": {
-    "id": "ssa.transshipmentreport",
+    "id": "lab2dev/splitappmanipulation",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -55,7 +55,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "ssa.transshipmentreport.i18n.i18n"
+          "bundleName": "lab2dev/splitappmanipulation.i18n.i18n"
         }
       }
     },
@@ -71,7 +71,7 @@
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "async": true,
-        "viewPath": "ssa.transshipmentreport.view",
+        "viewPath": "lab2dev/splitappmanipulation.view",
         "controlAggregation": "pages",
         "controlId": "app",
         "clearControlAggregation": false
@@ -115,7 +115,7 @@
           "viewType": "XML",
           "parent": "TargetHome",
           "controlAggregation": "masterPages",
-          "viewPath": "ssa.transshipmentreport.view.aggregations",
+          "viewPath": "lab2dev/splitappmanipulation.view.aggregations",
           "controlId": "freightOrdersSplitApp",
           "viewId": "FreightOrdersMaster",
           "viewName": "FreightOrdersMaster"
@@ -124,7 +124,7 @@
           "viewType": "XML",
           "parent": "TargetHome",
           "controlAggregation": "detailPages",
-          "viewPath": "ssa.transshipmentreport.view.aggregations",
+          "viewPath": "lab2dev/splitappmanipulation.view.aggregations",
           "controlId": "freightOrdersSplitApp",
           "viewId": "NoData",
           "viewName": "NoData"
@@ -132,7 +132,7 @@
         "FreightOrdersDetails": {
           "viewType": "XML",
           "parent": "TargetHome",
-          "viewPath": "ssa.transshipmentreport.view.aggregations",
+          "viewPath": "lab2dev/splitappmanipulation.view.aggregations",
           "controlAggregation": "detailPages",
           "controlId": "freightOrdersSplitApp",
           "viewId": "FreightOrdersDetails",
@@ -148,7 +148,7 @@
       }
     },
     "rootView": {
-      "viewName": "ssa.transshipmentreport.view.App",
+      "viewName": "lab2dev/splitappmanipulation.view.App",
       "type": "XML",
       "async": true,
       "id": "App"

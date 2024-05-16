@@ -1,12 +1,12 @@
 sap.ui.define([
-    "ssa/transshipmentreport/controller/BaseController",
-    "ssa/transshipmentreport/utils/factories",
+    "lab2dev/splitappmanipulation/controller/BaseController",
+    "lab2dev/splitappmanipulation/utils/factories",
     "sap/ui/model/json/JSONModel",
 ],
     function (Controller, factories, JSONModel) {
         "use strict";
 
-        return Controller.extend("ssa.transshipmentreport.controller.Home", {
+        return Controller.extend("lab2dev/splitappmanipulation.controller.Home", {
             factories: factories,
             onInit: function () {
                 this.oRouter = this.getOwnerComponent().getRouter();

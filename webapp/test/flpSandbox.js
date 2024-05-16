@@ -61,8 +61,8 @@ sap.ui.define([
 								},
 								"resolutionResult": {
 									"applicationType": "SAPUI5",
-									"additionalInformation": "SAPUI5.Component=ssa.transshipmentreport",
-									"url": sap.ui.require.toUrl("ssa/transshipmentreport")
+									"additionalInformation": "SAPUI5.Component=lab2dev/splitappmanipulation",
+									"url": sap.ui.require.toUrl("lab2dev/splitappmanipulation")
 								}
 							}
 						}

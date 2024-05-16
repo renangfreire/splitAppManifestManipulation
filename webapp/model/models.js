@@ -13,7 +13,7 @@ sap.ui.define([
         },
         getMockData: async function(){
             const oModel = new JSONModel();
-            const sURI = sap.ui.require.toUrl("ssa/transshipmentreport/model/mockdata.json")
+            const sURI = sap.ui.require.toUrl("lab2dev/splitappmanipulation/model/mockdata.json")
             await oModel.loadData(sURI)
 
            return oModel.getData()
