@@ -7,7 +7,7 @@ sap.ui.define([
 
 	Opa5.extendConfig({
 		arrangements: new Startup(),
-		viewNamespace: "ssa.transshipmentreport.view.",
+		viewNamespace: "lab2dev.splitappmanipulation.view.",
 		autoWait: true
 	});
 });

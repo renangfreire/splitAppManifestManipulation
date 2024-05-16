@@ -5,12 +5,12 @@
 sap.ui.define([
         "sap/ui/core/UIComponent",
         "sap/ui/Device",
-        "ssa/transshipmentreport/model/models"
+        "lab2dev/splitappmanipulation/model/models"
     ],
     function (UIComponent, Device, models) {
         "use strict";
 
-        return UIComponent.extend("ssa.transshipmentreport.Component", {
+        return UIComponent.extend("lab2dev.splitappmanipulation.Component", {
             metadata: {
                 manifest: "json"
             },

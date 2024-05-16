@@ -6,7 +6,7 @@ sap.ui.define([
     function (Controller, factories, JSONModel) {
         "use strict";
 
-        return Controller.extend("lab2dev.splitappmanipulation.controller.Home", {
+        return Controller.extend("lab2dev.splitappmanipulation.controller.FreightOrdersMaster", {
             factories: factories,
             onInit: function () {
                 this.oRouter = this.getOwnerComponent().getRouter();
@@ -18,6 +18,14 @@ sap.ui.define([
                 const oModel = new JSONModel(oData)
 
                 this.setModel(oModel)
+            },
+            navToOrderDetails: function(oEvent){
+                const oSource = oEvent.getSource()
+                const oContext = oSource.getBindingContext()
+
+                const sFreightOrderId = oContext.getProperty("OfNumber")
+                this.navTo("FreightOrderDetail", {freightOrderId: sFreightOrderId})
             }
         });
 });
+ 

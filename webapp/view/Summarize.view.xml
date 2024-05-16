@@ -1,7 +1,121 @@
-<mvc:View controllerName="ssa.transshipmentreport.controller.Home"
+<mvc:View controllerName="lab2dev.splitappmanipulation.controller.Summarize"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:table="sap.ui.table"
     xmlns:core="sap.ui.core" displayBlock="true"
     xmlns="sap.m">
-    <Page id="summarize">
+    <Page id="summarize" showHeader="false">
+        <Title class="sapUiSmallMargin" text="Sumarizar Ordens de Frete" titleStyle="H2"></Title>
+    
+        <Panel class="sapUiSmallMargin sapUiNoMarginTop" backgroundDesign="Solid" width="auto"> 
+            <Title text="Filtros" class="sapUiSmallMarginBottom" />
+
+            <HBox>
+                <VBox class="sapUiSmallMarginEnd">
+                    <Label text="Ordem de frete"/>
+                    <MultiComboBox 
+                        width="15rem"
+                        items="{
+                            path: '/results/',
+                            sorter: {path: 'ORDEM'}
+                        }"
+                        selectedKeys="{filters>/orders}"
+                        >
+                            <core:Item key="{ORDEM}" text="{ORDEM}" />
+                    </MultiComboBox>
+                </VBox>
+                <VBox class="sapUiSmallMarginEnd">
+                    <Label text="Ordem de venda"/>
+                    <MultiComboBox 
+                        width="15rem"
+                        items="{
+                            path: '/results/',
+                            sorter: {path: 'ORDEM'}
+                        }"
+                        selectedKeys="{filters>/orders}"
+                        >
+                            <core:Item key="{ORDEM}" text="{ORDEM}" />
+                    </MultiComboBox>
+                </VBox>
+                <HBox alignItems="End">
+                    <Button class="sapUiTinyMarginEnd" text="Limpar filtros" press="handleClearFilter" />
+                    <Button type="Emphasized" text="Filtrar" press="handleFilterEnabled"/>
+                </HBox>
+            </HBox>
+        </Panel >
+
+        <VBox backgroundDesign="Solid" class="sapUiSmallMargin">
+            <VBox class="sapUiTinyMarginTop">
+                <Title class="sapUiTinyMargin" titleStyle="H4" text="Ordens de Frete (2)" /> 
+                <List items="{summarizeOrders>/}">
+                    <CustomListItem >
+                        <Toolbar >
+                            <Title class="custom-bold-title" text="Ordem #{summarizeOrders>OfNumber}" titleStyle="H5" />
+                            <ToolbarSpacer />
+                            <Button type="Transparent" icon="{= ${summarizeOrders>isVisible} === true ? 'sap-icon://navigation-down-arrow' : 'sap-icon://navigation-right-arrow'}" press="handleVisibleList"/>
+                        </Toolbar>
+
+                        <List visible="{summarizeOrders>isVisible}"  items="{summarizeOrders>To_Ovs/}">
+                            <CustomListItem>
+                                <Toolbar>
+                                    <Title class="sapUiSmallMarginBegin custom-bold-title" text="Ordem de Venda #{summarizeOrders>OrdemVenda}" titleStyle="H6" />
+                                    <ToolbarSpacer />
+                                    <Button class="sapUiTinyMarginEnd" visible="{= ${summarizeOrders>isVisible} === true}" type="Emphasized" text="Editar" press="togglePermissionsList"/>
+                                    <Button class="sapUiTinyMarginEnd" type="Transparent" icon="{= ${summarizeOrders>isVisible} === true ? 'sap-icon://navigation-down-arrow' : 'sap-icon://navigation-right-arrow'}" press="handleVisibleList"/>
+                                </Toolbar>
+
+                                <table:Table 
+                                    visible="{summarizeOrders>isVisible}"  
+                                    rows="{summarizeOrders>Materiais/}"
+                                    visibleRowCountMode="Auto"
+                                    minAutoRowCount="{= ${summarizeOrders>Materiais/length} > 5 ? 10 : 5 }"
+                                    selectionMode="None"
+                                    >
+                                    <table:columns>
+                                        <table:Column>
+                                            <Label text="{i18n>CodMaterial}"></Label>
+                                            <table:template>
+                                                <Text text="{summarizeOrders>CodMaterial}" />
+                                            </table:template>
+                                        </table:Column>
+                                        <table:Column>
+                                            <Label text="{i18n>NomeMaterial}"></Label>
+                                            <table:template>
+                                                <Text text="{summarizeOrders>NomeMaterial}" />
+                                            </table:template>
+                                        </table:Column>
+                                        <table:Column>
+                                            <Label text="{i18n>Peso}"></Label>
+                                            <table:template>
+                                                <Text text="{summarizeOrders>Peso}" />
+                                            </table:template>
+                                        </table:Column>
+                                        <table:Column>
+                                            <Label text="{i18n>Quantidade}"></Label>
+                                            <table:template>
+                                                <Text text="{summarizeOrders>Quantidade}" />
+                                            </table:template>
+                                        </table:Column>
+                                        <table:Column>
+                                            <Label text="{i18n>Cubagem}"></Label>
+                                            <table:template>
+                                                <Text text="{summarizeOrders>Cubagem}" />
+                                            </table:template>
+                                        </table:Column>
+                                    </table:columns>
+                                </table:Table>
+                            </CustomListItem>
+                        </List>
+                    </CustomListItem>
+                </List>
+            </VBox>
+        </VBox>
+
+        <footer>
+            <OverflowToolbar >
+                <ToolbarSpacer />
+                <Button type="Ghost" text="Cancelar"></Button>
+                <Button type="Emphasized" text="Sumarizar Ordens"></Button>
+            </OverflowToolbar>
+        </footer>
     </Page>     
 </mvc:View>

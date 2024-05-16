@@ -5,7 +5,7 @@ sap.ui.define(
     function(BaseController) {
       "use strict";
   
-      return BaseController.extend("ssa.transshipmentreport.controller.App", {
+      return BaseController.extend("lab2dev.splitappmanipulation.controller.App", {
         onInit: function() {
         }
       });

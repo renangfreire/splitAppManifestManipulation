@@ -23,11 +23,11 @@ sap.ui.define(
                     "background-color": "#fff494",
                     color: "#665c00"
                 },
-                processed: {
+                pending: {
                     "background-color": "#ae4000",
                     color: "#ffdf72"
                 },
-                approved: {
+                linked: {
                     "background-color": "#236c39",
                     color: "#bde986"
                 },

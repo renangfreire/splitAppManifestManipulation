@@ -1,8 +1,69 @@
-<mvc:View xmlns:vbm="sap.ui.vbm" controllerName="ssa.transshipmentreport.controller.Home"
+<mvc:View xmlns:vbm="sap.ui.vbm" controllerName="lab2dev.splitappmanipulation.controller.FreightOrdersMaster"
     xmlns:html="http://www.w3.org/1999/xhtml"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:utils="lab2dev.splitappmanipulation.utils"
+    xmlns:core="sap.ui.core" displayBlock="true"
     xmlns="sap.m">
     <Page id="freightOrderMaster" showHeader="false">  
-        <Title text="Master" />
+        <Panel expanded="true" headerText="Filtros" expandable="true" backgroundDesign="Solid">
+            <VBox>
+                <VBox>
+                <Label text="Ordem de frete"/>
+                <MultiComboBox width="100%" items="{ path: '/results/', sorter: {path: 'OfNumber'} }" selectedKeys="{filters>/orders}">
+                <core:Item key="{OfNumber}" text="{OfNumber}"/>
+                </MultiComboBox>
+                </VBox>
+                <VBox>
+                <Label text="Status"/>
+                <MultiComboBox width="100%" selectedKeys="{filters>/selectedStatus}" items="{viewDetails>/allStatus}">
+                <core:Item key="{viewDetails>}" text="{path: 'viewDetails>', formatter: '.formatter.formatStatus'}"/>
+                </MultiComboBox>
+                </VBox>
+                <VBox>
+                <Label text="Data de envio" required="true"/>
+                <HBox alignItems="Center">
+                <DatePicker displayFormat="dd/MM/yyyy" placeholder=" " dateValue="{filters>/dhEnvio_start}"/>
+                <Text class="sapUiTinyMarginBeginEnd" text="Até" wrapping="false"/>
+                <DatePicker displayFormat="dd/MM/yyyy" placeholder=" " dateValue="{filters>/dhEnvio_end}"/>
+                </HBox>
+                </VBox>
+                <HBox class="sapUiTinyMarginTop">
+                    <Button type="Emphasized" class="sapUiSmallMarginEnd" text="Filtrar" press="handleFilterEnabled"/>
+                    <Button text="Limpar filtros" press="handleClearFilter"/>
+                </HBox>
+            </VBox>
+        </Panel>
+
+        <List 
+            mode="MultiSelect"
+            id="TransshipmentOrders_table"
+            items="{/results/}">
+                <headerToolbar>
+                    <OverflowToolbar>
+                            <Title text="Ordens de frete (4)" level="H4"/>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <CustomListItem
+                    type="Active"
+                    press="navToOrderDetails">
+                    <HBox class="sapUiSmallMargin sapUiTinyMarginBegin" justifyContent="SpaceBetween">
+                        <VBox >
+                            <Title class="sapUiTinyMarginBottom" text="Ordem #{OfNumber}" titleStyle="H4" />
+                            <ObjectAttribute class="sapUiTinyMarginBottom" text="Pedido: {PedTransferencia}" />
+                            <ObjectAttribute text="Data: {path: 'DataCriacao', formatter: '.formatter.formatDate'}" />
+                        </VBox>   
+                        <VBox justifyContent="Start">
+                            <utils:Badge badgeText="{Status}" badgeColor="{Status}"/>
+                        </VBox>
+                    </HBox>
+                </CustomListItem>
+        </List>
+
+        <footer>
+            <OverflowToolbar >
+                <ToolbarSpacer ></ToolbarSpacer>
+                <Button text="Sumarizador" type="Emphasized" id="navTo_Summarize" press="onNavTo"/> 
+            </OverflowToolbar>
+        </footer>
     </Page>
 </mvc:View>

@@ -1,8 +1,81 @@
-<mvc:View controllerName="ssa.transshipmentreport.controller.Home"
+<mvc:View controllerName="lab2dev.splitappmanipulation.controller.FreightOrdersDetails"
     xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:f="sap.f"
+    xmlns:utils="lab2dev.splitappmanipulation.utils"
+    xmlns:table="sap.ui.table"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
-    <Page id="freightOrderDetails" showHeader="false">
-        <Title text="Details" />
-    </Page>
+    <Page id="freightOrderDetails" showHeader="false" busyIndicatorDelay="0">
+        <Panel backgroundDesign="Solid">
+            <VBox class="sapUiSmallMargin sapUiNoMarginBottom">
+                <HBox justifyContent="SpaceBetween">
+                    <Title text="Ordem de Frete #{selectedFreightOrder>/OfNumber}" titleStyle="H2"/>
+                </HBox>
+                <HBox class="sapUiSmallMarginTop">
+                    <VBox >
+                        <Label text="Pedido:"></Label>
+                        <Text text="{selectedFreightOrder>/PedTransferencia}" />
+                    </VBox>
+                    <VBox class="sapUiMediumMarginBegin">
+                        <Label text="Status:"></Label>
+                        <utils:Badge badgeText="{selectedFreightOrder>/Status}" badgeColor="{selectedFreightOrder>/Status}"></utils:Badge>
+                    </VBox>
+                    <VBox class="sapUiMediumMarginBegin">
+                        <Label text="Data:"></Label>
+                        <Text text="{path: 'selectedFreightOrder>/DataCriacao', formatter: '.formatter.formatDate'}"></Text>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </Panel>
+
+        <table:Table 
+            class="sapUiSmallMargin"
+            rows="{selectedFreightOrder>/To_Ovs/}"
+            selectionMode="None"
+            rowActionCount="1"
+            >
+            <table:extension>
+                <OverflowToolbar >
+                    <Title text="Ordens de venda ({selectedFreightOrder>/To_Ovs/length})" />
+                </OverflowToolbar>
+            </table:extension>
+            <table:columns>
+                <table:Column >
+                    <Label text="{i18n>OrdemVenda}"></Label>
+                    <table:template>
+                        <Text text="{selectedFreightOrder>OrdemVenda}"></Text>
+                    </table:template>
+                </table:Column>
+                <table:Column >
+                    <Label text="{i18n>Remessa}"></Label>
+                    <table:template>
+                        <Text text="{selectedFreightOrder>Remessa}"></Text>
+                    </table:template>
+                </table:Column>
+                <table:Column >
+                    <Label text="{i18n>Peso}"></Label>
+                    <table:template>
+                        <Text text="{path: 'selectedFreightOrder>Peso', formatter: '.formatter.formatWeight'} {selectedFreightOrder>UnPeso}"></Text>
+                    </table:template>
+                </table:Column>
+                <table:Column >
+                    <Label text="{i18n>Quantidade}"></Label>
+                    <table:template>
+                        <Text text="{selectedFreightOrder>Quantidade} {selectedFreightOrder>UnQuantidade}"></Text>
+                    </table:template>
+                </table:Column>
+                <table:Column >
+                    <Label text="{i18n>Cubagem}"></Label>
+                    <table:template>
+                        <Text text="{selectedFreightOrder>Cubagem} {selectedFreightOrder>UnCubagem}"></Text>
+                    </table:template>
+                </table:Column>
+            </table:columns>
+            <table:rowActionTemplate>
+                <table:RowAction >
+                    <table:RowActionItem type="Navigation" press="navToSaleOrderDetails"/>
+                </table:RowAction>
+            </table:rowActionTemplate>
+        </table:Table>
+</Page>
 </mvc:View>

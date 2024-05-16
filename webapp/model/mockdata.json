@@ -9,7 +9,7 @@
                 {
                     "OrdemVenda": "5010",
                     "Remessa": "1020",
-                    "Peso": "100",
+                    "Peso": "20000",
                     "UnPeso": "KG",
                     "Quantidade": "200",
                     "UnQuantidade": "CD",
@@ -31,7 +31,7 @@
                 {
                     "OrdemVenda": "5014",
                     "Remessa": "1022",
-                    "Peso": "100",
+                    "Peso": "20000",
                     "UnPeso": "KG",
                     "Quantidade": "200",
                     "UnQuantidade": "CD",
@@ -61,7 +61,7 @@
                 {
                     "OrdemVenda": "5011",
                     "Remessa": "1021",
-                    "Peso": "200",
+                    "Peso": "24000",
                     "UnPeso": "KG",
                     "Quantidade": "240",
                     "UnQuantidade": "CD",
@@ -87,7 +87,97 @@
                             "UnQuantidade": "CD",
                             "Cubagem": "20",
                             "UnCubagem": "M3"
-                        }   
+                        },   
+                        {
+                            "CodMaterial": "9010",
+                            "NomeMaterial": "SSA - Frangos",
+                            "Peso": "100",
+                            "UnPeso": "KG",
+                            "Quantidade": "200",
+                            "UnQuantidade": "CD",
+                            "Cubagem": "20",
+                            "UnCubagem": "M3"
+                        },
+                        {
+                            "CodMaterial": "9011",
+                            "NomeMaterial": "SSA - Frangos (2)",
+                            "Peso": "100",
+                            "UnPeso": "KG",
+                            "Quantidade": "40",
+                            "UnQuantidade": "CD",
+                            "Cubagem": "20",
+                            "UnCubagem": "M3"
+                        },   
+                        {
+                            "CodMaterial": "9010",
+                            "NomeMaterial": "SSA - Frangos",
+                            "Peso": "100",
+                            "UnPeso": "KG",
+                            "Quantidade": "200",
+                            "UnQuantidade": "CD",
+                            "Cubagem": "20",
+                            "UnCubagem": "M3"
+                        },
+                        {
+                            "CodMaterial": "9011",
+                            "NomeMaterial": "SSA - Frangos (2)",
+                            "Peso": "100",
+                            "UnPeso": "KG",
+                            "Quantidade": "40",
+                            "UnQuantidade": "CD",
+                            "Cubagem": "20",
+                            "UnCubagem": "M3"
+                        },   
+                        {
+                            "CodMaterial": "9010",
+                            "NomeMaterial": "SSA - Frangos",
+                            "Peso": "100",
+                            "UnPeso": "KG",
+                            "Quantidade": "200",
+                            "UnQuantidade": "CD",
+                            "Cubagem": "20",
+                            "UnCubagem": "M3"
+                        },
+                        {
+                            "CodMaterial": "9011",
+                            "NomeMaterial": "SSA - Frangos (2)",
+                            "Peso": "100",
+                            "UnPeso": "KG",
+                            "Quantidade": "40",
+                            "UnQuantidade": "CD",
+                            "Cubagem": "20",
+                            "UnCubagem": "M3"
+                        },   
+                        {
+                            "CodMaterial": "9010",
+                            "NomeMaterial": "SSA - Frangos",
+                            "Peso": "100",
+                            "UnPeso": "KG",
+                            "Quantidade": "200",
+                            "UnQuantidade": "CD",
+                            "Cubagem": "20",
+                            "UnCubagem": "M3"
+                        },
+                        {
+                            "CodMaterial": "9011",
+                            "NomeMaterial": "SSA - Frangos (2)",
+                            "Peso": "100",
+                            "UnPeso": "KG",
+                            "Quantidade": "40",
+                            "UnQuantidade": "CD",
+                            "Cubagem": "20",
+                            "UnCubagem": "M3"
+                        },
+                        {
+                            "CodMaterial": "9011",
+                            "NomeMaterial": "SSA - Frangos (2)",
+                            "Peso": "100",
+                            "UnPeso": "KG",
+                            "Quantidade": "40",
+                            "UnQuantidade": "CD",
+                            "Cubagem": "20",
+                            "UnCubagem": "M3"
+                        }
                     ]
                 }
                 

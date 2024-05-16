@@ -14,7 +14,7 @@ sap.ui.define([
 			// start the app UI component
 			this.iStartMyUIComponent({
 				componentConfig: {
-					name: "ssa.transshipmentreport",
+					name: "lab2dev.splitappmanipulation",
 					async: true
 				},
 				hash: oOptions.hash,

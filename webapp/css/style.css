@@ -1,1 +1,14 @@
 /* Enter your custom styles here */
+
+.no-data-title span {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .no-data-title  {
+    margin-bottom: 2rem !important;
+  }
+
+.custom-bold-title{
+  font-weight: bold;
+}

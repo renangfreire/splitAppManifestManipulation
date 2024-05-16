@@ -1,0 +1,83 @@
+<mvc:View controllerName="lab2dev.splitappmanipulation.controller.SalesOrdersDetails"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:f="sap.f"
+    xmlns:utils="lab2dev.splitappmanipulation.utils"
+    xmlns:table="sap.ui.table"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="freightOrderDetails" showHeader="false" busyIndicatorDelay="0">
+        <HBox backgroundDesign="Solid">
+            <Button class="sapUiTinyMarginBegin" type="Back" press="navBack"></Button>
+        </HBox>
+        <Panel backgroundDesign="Solid">
+            <VBox class="sapUiSmallMargin sapUiNoMarginBottom">
+                <HBox justifyContent="SpaceBetween">
+                    <Title text="Ordem de Venda #{selectedSaleOrder>/OrdemVenda}" titleStyle="H2"/>
+                </HBox>
+               <HBox class="sapUiSmallMarginTop" >
+                    <VBox >
+                        <Label text="{i18n>Remessa}"></Label>
+                        <Text text="{selectedSaleOrder>/Remessa}"></Text>
+                    </VBox>
+                    <VBox class="sapUiMediumMarginBegin">
+                        <Label text="{i18n>Peso} Total"></Label>
+                        <Text text="{path: 'selectedSaleOrder>/Peso', formatter: '.formatter.formatWeight'} {selectedSaleOrder>/UnPeso}"></Text>
+                    </VBox>
+                    <VBox class="sapUiMediumMarginBegin">
+                        <Label text="{i18n>Quantidade} Total"></Label>
+                        <Text text="{selectedSaleOrder>/Quantidade} {selectedSaleOrder>/UnQuantidade}"></Text>
+                    </VBox>
+                    <VBox class="sapUiMediumMarginBegin">
+                        <Label text="{i18n>Cubagem} Total"></Label>
+                        <Text text="{selectedSaleOrder>/Cubagem} {selectedSaleOrder>/UnCubagem}"></Text>
+                    </VBox>
+               </HBox>
+            </VBox>
+        </Panel>
+
+        <table:Table 
+            class="sapUiSmallMargin"
+            rows="{selectedSaleOrder>/Materiais/}"
+            selectionMode="None"
+            >
+            <table:extension>
+                <OverflowToolbar >
+                    <Title text="Materiais ({selectedSaleOrder>/Materiais/length})" />
+                </OverflowToolbar>
+            </table:extension>
+            <table:columns>
+                <table:Column >
+                    <Label text="{i18n>CodMaterial}"></Label>
+                    <table:template>
+                        <Text text="{selectedSaleOrder>CodMaterial}"></Text>
+                    </table:template>
+                </table:Column>
+                <table:Column >
+                    <Label text="{i18n>NomeMaterial}"></Label>
+                    <table:template>
+                        <Text text="{selectedSaleOrder>NomeMaterial}"></Text>
+                    </table:template>
+                </table:Column>
+                <table:Column >
+                    <Label text="{i18n>Peso}"></Label>
+                    <table:template>
+                        <Text text="{path: 'selectedSaleOrder>Peso', formatter: '.formatter.formatWeight'} {selectedSaleOrder>UnPeso}"></Text>
+                    </table:template>
+                </table:Column>
+                <table:Column >
+                    <Label text="{i18n>Quantidade}"></Label>
+                    <table:template>
+                        <Text text="{selectedSaleOrder>Quantidade} {selectedSaleOrder>UnQuantidade}"></Text>
+                    </table:template>
+                </table:Column>
+                <table:Column >
+                    <Label text="{i18n>Cubagem}"></Label>
+                    <table:template>
+                        <Text text="{selectedSaleOrder>Cubagem} {selectedSaleOrder>UnCubagem}"></Text>
+                    </table:template>
+                </table:Column>
+            </table:columns>
+        </table:Table>
+
+    </Page>
+</mvc:View>
